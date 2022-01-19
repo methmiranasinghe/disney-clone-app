@@ -1,6 +1,19 @@
 import styled from "styled-components";
 
+import { auth, provider } from "../firebase";
+
 const Header = (props) => {
+  
+  const handleAuth = () => {
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
   return (
     <Nav>
       <Logo src="/images/logo.svg" alt="logo-one"></Logo>
@@ -9,7 +22,28 @@ const Header = (props) => {
           <img src="/images/home-icon.svg" alt="HOME"></img>
           <span>HOME</span>
         </a>
+        <a href="/">
+          <img src="/images/search-icon.svg" alt="SEARCH" />
+          <span>SEARCH</span>
+        </a>
+        <a href="/">
+          <img src="/images/watchlist-icon.svg" alt="WATCHLIST" />
+          <span>WATCHLIST</span>
+        </a>
+        <a href="/">
+          <img src="/images/original-icon.svg" alt="ORIGINALS" />
+          <span>ORIGINALS</span>
+        </a>
+        <a href="/">
+          <img src="/images/movie-icon.svg" alt="MOVIES" />
+          <span>MOVIES</span>
+        </a>
+        <a href="/">
+          <img src="/images/series-icon.svg" alt="SERIES" />
+          <span>SERIES</span>
+        </a>
       </NavMenu>
+      <Login onClick={handleAuth}>Login</Login>
     </Nav>
   );
 };
@@ -97,8 +131,25 @@ const NavMenu = styled.div`
     }
   }
 
-  //   @media (max-width: 768px) {
-  //     display: none;
-  //   }
+    @media (max-width: 768px) {
+      display: none;
+    }
+`;
+
+const Login = styled.a`
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border: 1px solid #f9f9f9;
+  border-radius: 4px;
+  transition: all 0.2s ease 0s;
+
+  &:hover {
+    background-color: #f9f9f9;
+    color: #000;
+    border-color: transparent;
+  }
 `;
 export default Header;
