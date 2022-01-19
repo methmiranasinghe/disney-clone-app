@@ -5,13 +5,20 @@ const Login = (props) => {
     <Container>
       <Content>
         <CTA>
-          <CTALogoOne src="/images/cta-logo-one.svg" alt=""></CTALogoOne>
+          <CTALogoOne
+            src="/images/cta-logo-one.svg"
+            alt="logo-one"
+          ></CTALogoOne>
           <SignUp>GET ALL THERE</SignUp>
           <Description>
-            Get Premier Access to Encanto for an additional fee
-            with a Disney+ subscription. As of 04/20/22, the price of Disney+
-            and The Disney Bundle will increase by $1.
+            Get Premier Access to Encanto for an additional fee with a Disney+
+            subscription. As of 04/20/22, the price of Disney+ and The Disney
+            Bundle will increase by $1.
           </Description>
+          <CTALogoTwo
+            src="/images/cta-logo-two.png"
+            alt="logo-two"
+          ></CTALogoTwo>
         </CTA>
         <BgImage></BgImage>
       </Content>
@@ -95,4 +102,11 @@ const Description = styled.p`
   letter-spacing: 1.5px;
 `;
 
+const CTALogoTwo = styled.img`
+  max-width: 600px;
+  margin-bottom: 20px;
+  display: inline-block;
+  vertical-align: bottom;
+  width: 100%;
+`;
 export default Login;
